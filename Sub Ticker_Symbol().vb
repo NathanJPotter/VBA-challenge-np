@@ -1,9 +1,5 @@
 ' Here is a script that will loop through all the stocks for one year and output:
 ' - The ticker symbol
-' - Yearly change from opening at the begining of a given year to the closing price at the end of the year
-'       - including conditional formatting that highlights positive change in green and negative change in red.
-' - The percentage change from opening at the begining of a given year to the closing price at the end of the year
-' - The total stock volume of the stock
 
 Sub Ticker_Symbol()
 
@@ -20,7 +16,7 @@ Sub Ticker_Symbol()
 
     ' Set numrows = number of rows of data.
 
-        numrows = Range("A2", Range("A1").End(xlDown)).Rows.Count
+        numrows = Range("A1", Range("A1").End(xlDown)).Rows.Count
 
     'Loop through all the stock/ticker types with a For loop to loop "numrows" number of times
 

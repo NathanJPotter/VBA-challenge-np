@@ -1,3 +1,10 @@
+' Here is a script that will loop through all the stocks for one year and output:
+' - The ticker symbol
+' - Yearly change from opening at the begining of a given year to the closing price at the end of the year
+'       - including conditional formatting that highlights positive change in green and negative change in red.
+' - The percentage change from opening at the begining of a given year to the closing price at the end of the year
+' - The total stock volume of the stock
+
 Sub Stock_market_analyser ()
 
     'Keep track of the location for each stock/ticker type 
@@ -8,8 +15,22 @@ Sub Stock_market_analyser ()
     ' Add title and format the Ticker column
 
      Cells(1, 10).Value = "Ticker"
-
      Cells(1, 10).Font.Bold = True
+
+    ' Add title and format to the Yearly Change column
+
+    Cells(1, 11).Value = "Yearly Change"
+    Cells(1, 11).Font.Bold = True
+
+    ' Add title and format to the Percentage Change column
+
+    Cells(1, 12).Value = "Percentage Change"
+    Cells(1, 12).Font.Bold = True
+
+    ' Add title and format to the Total Stock Volume column
+
+    Cells(1, 13).Value = "Total Stock Volume"
+    Cells(1, 13).Font.Bold = True
 
     ' Set numrows = number of rows of data.
 
@@ -35,6 +56,10 @@ Sub Stock_market_analyser ()
 
          End If
 
-    Next i   
+    Next i  
+
+    ' Autofit the size of columns to fit the contents of cells
+
+    Worksheets("Sheet1").Range("A1:M1").Columns.AutoFit
 
 End Sub
