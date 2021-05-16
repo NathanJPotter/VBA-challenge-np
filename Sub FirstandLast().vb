@@ -1,4 +1,4 @@
-Sub Yearly_Change()
+Sub FirstandLast()
 
     ' Here is a script that will loop through all the stocks for one year and output:
     ' - The ticker symbol
@@ -16,6 +16,14 @@ Sub Yearly_Change()
     Cells(1, 11).Value = "Yearly Change"
     Cells(1, 11).Font.Bold = True
 
+    ' Add titles and format to year open value and year close close culumns
+
+    Cells(1, 15).Value = "Year Open"
+    Cells(1, 15).Font.Bold = True
+
+    Cells(1, 16).Value = "Year Close"
+    Cells(1, 16).Font.Bold = True
+
     'Keep track of the location for each stock/ticker type
      Dim Ticker_row_finish As Integer
      Ticker_row_finish = 2
@@ -28,7 +36,7 @@ Sub Yearly_Change()
 
     Dim close_value As Double
     Dim open_value As Double 
-    Dim Yearly_Change As Double
+    Dim yearly_change As Double
 
     
     ' Set numrows = number of rows of data.
@@ -51,22 +59,9 @@ Sub Yearly_Change()
 
             ' Find the last date
 
-            close_value = Cells(1, 6).Value
+            close_value = Cells(i, 6).Value
 
-                ' Find the first date
-
-                    For j = 2 to numrows
-
-                ' Define start of the date range
-                     If Cells( j - 1, 1).Value <> Cells(j, 1).Value Then
-
-                    open_value = Cells(j, 6).Value
-
-                    Ticker_row_start = Ticker_row_start + 1
-
-                End If
-
-            Next j 
+            Range("P" & Ticker_row_finish).Value = close_value
 
             ' Add one to ticker row finish
 
@@ -74,16 +69,36 @@ Sub Yearly_Change()
 
          End If
 
-         ' Calculate the value of yearly change as close - open
+    Next i    
 
-        Yearly_Change = close_value - open_value
+                ' Find the first date
 
-        ' Print Yearly_Change in the Yearly Change column
+                 For j = 2 to numrows
 
-        Range("K" & Ticker_row_finish).Value = Yearly_Change
+                     ' Define start of the date range
+                      If Cells( j - 1, 1).Value <> Cells(j, 1).Value Then
 
-    Next i
+                         open_value = Cells(j, 3).Value
 
+                         Range("O" & Ticker_row_start).Value = open_value
 
+                        ' Calculate the value of yearly change as close - open
+
+                            yearly_change = close_value - open_value
+
+                        ' Print Yearly_Change in the Yearly Change column
+
+                            Range("K" & Ticker_row_start).Value = yearly_change
+                                                    
+                            ' Add one to ticker row start
+
+                            Ticker_row_start = Ticker_row_start + 1
+
+                     End If
+
+                   
+                 Next j 
+
+         
 End Sub
 
