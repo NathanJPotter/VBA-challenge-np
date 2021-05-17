@@ -32,6 +32,8 @@ Sub Stock_market_analyser ()
     Cells(1, 13).Value = "Total Stock Volume"
     Cells(1, 13).Font.Bold = True
 
+    Worksheets("A").Range("J1:M1").Columns.AutoFit
+
     ' Set numrows = number of rows of data.
 
         numrows = Range("A2", Range("A1").End(xlDown)).Rows.Count
@@ -59,7 +61,5 @@ Sub Stock_market_analyser ()
     Next i  
 
     ' Autofit the size of columns to fit the contents of cells
-
-    Worksheets("Sheet1").Range("A1:M1").Columns.AutoFit
 
 End Sub

@@ -117,11 +117,11 @@ Sub Percentage_Change()
                         
                         ' Calculate the value of Total Stock volume
 
-                            total_stock = WorksheetFunction.SUM(Range(Cells(i, 7):Cells(j, 7)))
+                            
 
                         'Print total_stock in Total Stock column
 
-                            Range("M" & Ticker_row_start).Value = total_stock
+                           
 
                             ' Add one to ticker row start
 

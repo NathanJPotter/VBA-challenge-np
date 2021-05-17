@@ -89,13 +89,11 @@ Sub Yearly_Change()
                         
                      End If
 
-                     Next j
+                Next j
 
              ' Add one to ticker row finish
 
              Ticker_row_finish = Ticker_row_finish + 1
-
-
 
          End If
 
