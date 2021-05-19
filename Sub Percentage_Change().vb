@@ -145,11 +145,7 @@ Sub Percentage_Change()
 
                         ws.Cells(Ticker_tracker, 12).Value = Format(0, "Percent")
 
-                    End If
-
-                'Print percentage_change in Percentage Change column L (ie col 12)
-
-                    ws.Cells(Ticker_tracker, 12).Value = percentage_change
+                    End If              
                             
                 ' To calculate the yearly volume, set the open_volume and close_volume
                 
