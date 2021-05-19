@@ -45,7 +45,7 @@ Sub Percentage_Change()
         ws.Cells(1, 13).Value = "Total Stock Volume"
         ws.Cells(1, 13).Font.Bold = True
 
-        ' Define variables for yearly change
+        ' Define variables
 
             Dim worksheetname As String 
             Dim i As Long
@@ -108,7 +108,7 @@ Sub Percentage_Change()
                 
                 ' Calculate the value of percentage change
 
-                    percentage_change = (yearly_change / open_value) * 100
+                    percentage_change = ((ws.Cells(i, 6).Value - ws.Cells(j, 3).Value) / ws.Cells(j, 3).Value)
 
                 'Print percentage_change in Percentage Change column L (ie col 12)
 
