@@ -41,102 +41,90 @@ Sub Percentage_Change()
     Cells(1, 13).Value = "Total Stock Volume"
     Cells(1, 13).Font.Bold = True
 
-    'Keep track of the location for each stock/ticker type
-     Dim Ticker_row_finish As Long
-     Ticker_row_finish = 2
-
-     Dim Ticker_row_start As Long
-     Ticker_row_start = 2
-
-
      ' Define variables for yearly change
 
-    Dim i As Long
-    Dim j As Long
-    Dim close_value As Double
-    Dim open_value As Double 
-    Dim yearly_change As Double
-    Dim percentage_change As Double
-    Dim total_stock As Double
-    Dim close_volume As Double
-    Dim open_volume As Double
+        Dim i As Long
+        Dim j As Long
+        Dim Ticker_tracker As Long
+        Dim close_value As Double
+        Dim open_value As Double 
+        Dim yearly_change As Double
+        Dim percentage_change As Double
+        Dim total_stock As Double
+        Dim close_volume As Double
+        Dim open_volume As Double
 
+    'Keep track of the location for each stock/ticker type
+         
+        Ticker_tracker = 2
     
     ' Set numrows = number of rows of data.
 
         numrows = Range("A1", Range("A1").End(xlDown)).Rows.Count
 
+    'Use "j" to set beginning of the row to 2
+
+        j = 2
+    
     'Loop through all the stock/ticker types with a For loop to loop "numrows" number of times
 
      For i = 2 to numrows
 
           If Cells( i + 1, 1).Value <> Cells(i, 1).Value Then
 
-         ' Set the stock/ticker name
+         ' Set the stock/ticker name and print to column J (ie column 10). Here "i" is the last row.
 
-            Ticker_name = Cells(i, 1).Value
+            Cells(Ticker_tracker, 10).Value = Cells(i, 1).Value
 
-         ' Print the stock/ticker name in the Ticker row
+        ' For yearly change, set the open_value and close_value
 
-            Range("J" & Ticker_row_finish).Value = Ticker_name
+                open_value = Cells(j, 3).Value
+               
+                close_value = Cells(i, 6).Value
 
-            ' Find the last date
+            ' Print open_value to column O (ie col 15) and close_value to column P (ie col 16) to check the number is correct (not part of the exercise)
 
-            close_value = Cells(i, 6).Value
+                Cells(Ticker_tracker, 15).Value = open_value
+                
+                Cells(Ticker_tracker, 16).Value = close_value
 
-            close_volume = Cells(i, 7).Value
+            ' Calculate the value of yearly change as close minus open
 
-            Range("P" & Ticker_row_finish).Value = close_value
+                yearly_change = close_value - open_value
+                
+            ' Print Yearly_Change in the Yearly Change, column K (ie col 11)
 
-                ' Find the first date
+                Cells(Ticker_tracker, 11).Value = yearly_change
 
-                 For j = 2 to numrows
+            ' Calculate the yearly volume, set the open_volume and close_volume
+               
+                open_volume = Cells(j, 7).Value
 
-                     ' Define start of the date range
-                      If Cells( j - 1, 1).Value <> Cells(j, 1).Value Then
+                close_volume = Cells(i, 7).Value
 
-                         open_value = Cells(j, 3).Value
+            ' Calculate the value of percentage change
 
-                         open_volume = Cells(j, 7).Value
+                percentage_change = (yearly_change / open_value) * 100
 
-                         Range("O" & Ticker_row_start).Value = open_value
+            'Print percentage_change in Percentage Change column L (ie col 12)
 
-                        ' Calculate the value of yearly change as close minus open
-
-                            yearly_change = close_value - open_value
-
-                        ' Print Yearly_Change in the Yearly Change column
-
-                            Range("K" & Ticker_row_start).Value = yearly_change
-
-                        ' Calculate the value of percentage change
-
-                            percentage_change = (yearly_change / open_value) * 100
-
-                        'Print percentage_change in Percentage Change column
-
-                            Range("L" & Ticker_row_start).Value = percentage_change
+                Cells(Ticker_tracker, 12).Value = percentage_change
                         
-                        ' Calculate the value of Total Stock volume
+            ' Calculate the value of Total Stock volume
 
                             
 
-                        'Print total_stock in Total Stock column
+            'Print total_stock in Total Stock column
 
                            
 
-                            ' Add one to ticker row start
+            ' Add one to ticker_tracker
 
-                            Ticker_row_start = Ticker_row_start + 1
+                Ticker_tracker = Ticker_tracker + 1
 
-                        
-                     End If
+            ' Add one to the beginning row (j)
 
-                Next j
-
-             ' Add one to ticker row finish
-
-             Ticker_row_finish = Ticker_row_finish + 1
+             j = i + 1
 
          End If
 
