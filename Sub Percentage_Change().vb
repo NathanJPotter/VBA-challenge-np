@@ -42,15 +42,17 @@ Sub Percentage_Change()
     Cells(1, 13).Font.Bold = True
 
     'Keep track of the location for each stock/ticker type
-     Dim Ticker_row_finish As Integer
+     Dim Ticker_row_finish As Long
      Ticker_row_finish = 2
 
-     Dim Ticker_row_start As Integer
+     Dim Ticker_row_start As Long
      Ticker_row_start = 2
 
 
      ' Define variables for yearly change
 
+    Dim i As Long
+    Dim j As Long
     Dim close_value As Double
     Dim open_value As Double 
     Dim yearly_change As Double
@@ -99,7 +101,7 @@ Sub Percentage_Change()
 
                          Range("O" & Ticker_row_start).Value = open_value
 
-                        ' Calculate the value of yearly change as close - open
+                        ' Calculate the value of yearly change as close minus open
 
                             yearly_change = close_value - open_value
 
