@@ -1,4 +1,4 @@
-Sub Percentage_Change()
+Sub StockTicker_Analysis_Final()
 
    
    ' Here is a script that will loop through all the stocks for one year and output:
