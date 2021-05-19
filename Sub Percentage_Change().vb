@@ -108,7 +108,11 @@ Sub Percentage_Change()
                 
                 ' Calculate the value of percentage change
 
+                    If ws.Cells(j, 3).Value<> 0 Then
+
                     percentage_change = ((ws.Cells(i, 6).Value - ws.Cells(j, 3).Value) / ws.Cells(j, 3).Value)
+
+                    End If
 
                 'Print percentage_change in Percentage Change column L (ie col 12)
 
