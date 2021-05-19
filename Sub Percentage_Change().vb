@@ -1,11 +1,15 @@
 Sub StockTicker_Analysis_Final()
 
-   
+   ' This script runs the Ticker Symbol, Yearly Change and Percentage Change. I didn't get around to doing the Bonus this time unfortunatley.
+
+
    ' Here is a script that will loop through all the stocks for one year and output:
     ' - The ticker symbol
     ' - Yearly change from opening at the begining of a given year to the closing price at the end of the year
         ' - including conditional formatting that highlights positive change in green and negative change in red.
      ' - The percentage change from opening at the begining of a given year to the closing price at the end of the year
+
+
 
     ' Define for each worksheet
 
