@@ -113,7 +113,7 @@ Sub Percentage_Change()
 
             ' Calculate the value of Total Stock volume and print in Total Stock column M (ie colm 13)
 
-                Cells(Ticker_tracker, 13).Value = Sum(Range(open_volume, close_volume))
+                Cells(Ticker_tracker, 13).Value = WorksheetFunction.Sum(Range(Cells(j, 7), Cells(i, 7)))
 
             ' Add one to ticker_tracker
 
