@@ -137,6 +137,14 @@ Sub Percentage_Change()
 
                         percentage_change = ((ws.Cells(i, 6).Value - ws.Cells(j, 3).Value) / ws.Cells(j, 3).Value)
 
+                        ' Format the cell as a percentage
+
+                        ws.Cells(Ticker_tracker, 12).Value = Format(percentage_change, "Percent")
+
+                        Else
+
+                        ws.Cells(Ticker_tracker, 12).Value = Format(0, "Percent")
+
                     End If
 
                 'Print percentage_change in Percentage Change column L (ie col 12)
