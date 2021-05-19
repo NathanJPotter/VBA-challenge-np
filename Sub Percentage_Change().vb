@@ -105,12 +105,37 @@ Sub Percentage_Change()
 
                     ws.Cells(Ticker_tracker, 11).Value = yearly_change
 
-                
+                    ' Set conditional formatting to distinguish a positive change from a negative change
+
+                    If ws.Cells(Ticker_tracker, 11).Value > 0 Then
+
+                        ' Set cell colour to green
+
+                        ws.Cells(Ticker_tracker, 11).Interior.ColorIndex = 4
+
+                        Else
+
+                        ' Set cell colour to red
+
+                        ws.Cells(Ticker_tracker, 11).Interior.ColorIndex = 3
+
+                    End If
+
+                    ' EXTRA FORMATTING (volunary work on top of requirements) set conditional formatting if yearly_change is zero
+
+                    If ws.Cells(Ticker_tracker, 11).Value = 0 Then
+
+                        'Set cell colour to yellow
+
+                        ws.Cells(Ticker_tracker, 11).Interior.ColorIndex = 6
+
+                    End If 
+
                 ' Calculate the value of percentage change
 
                     If ws.Cells(j, 3).Value<> 0 Then
 
-                    percentage_change = ((ws.Cells(i, 6).Value - ws.Cells(j, 3).Value) / ws.Cells(j, 3).Value)
+                        percentage_change = ((ws.Cells(i, 6).Value - ws.Cells(j, 3).Value) / ws.Cells(j, 3).Value)
 
                     End If
 
