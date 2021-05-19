@@ -96,12 +96,7 @@ Sub Percentage_Change()
 
                 Cells(Ticker_tracker, 11).Value = yearly_change
 
-            ' Calculate the yearly volume, set the open_volume and close_volume
-               
-                open_volume = Cells(j, 7).Value
-
-                close_volume = Cells(i, 7).Value
-
+            
             ' Calculate the value of percentage change
 
                 percentage_change = (yearly_change / open_value) * 100
@@ -110,13 +105,15 @@ Sub Percentage_Change()
 
                 Cells(Ticker_tracker, 12).Value = percentage_change
                         
-            ' Calculate the value of Total Stock volume
+            ' To calculate the yearly volume, set the open_volume and close_volume
+               
+                open_volume = Cells(j, 7).Value
 
-                            
+                close_volume = Cells(i, 7).Value
 
-            'Print total_stock in Total Stock column
+            ' Calculate the value of Total Stock volume and print in Total Stock column M (ie colm 13)
 
-                           
+                Cells(Ticker_tracker, 13).Value = Sum(Range(open_volume, close_volume))
 
             ' Add one to ticker_tracker
 
